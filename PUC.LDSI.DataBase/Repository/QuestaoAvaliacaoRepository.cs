@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PUC.LDSI.Domain.Entities;
 using PUC.LDSI.Domain.Interfaces.Repository;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 

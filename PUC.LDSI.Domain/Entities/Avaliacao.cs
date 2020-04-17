@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace PUC.LDSI.Domain.Entities
 {
@@ -30,6 +31,11 @@ namespace PUC.LDSI.Domain.Entities
                 erros.Add("A descrição precisa ser informada!");
 
             return erros.ToArray();
+        }
+
+        public static implicit operator List<object>(Avaliacao v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

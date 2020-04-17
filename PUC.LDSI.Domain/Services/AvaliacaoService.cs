@@ -16,21 +16,13 @@ namespace PUC.LDSI.Domain.Services
         private readonly IOpcaoAvaliacaoRepository opcaoavaliacaoRepository;
         private readonly IQuestaoAvaliacaoRepository questaoavaliacaoRepository;
 
-        public AvaliacaoService(IAvaliacaoRepository avaliacaoRepository)
+        public AvaliacaoService(IAvaliacaoRepository avaliacaoRepository, IOpcaoAvaliacaoRepository opcaoavaliacaoRepository, IQuestaoAvaliacaoRepository questaoavaliacaoRepository)
         {
             this.avaliacaoRepository = avaliacaoRepository;
-        }
-                
-        public AvaliacaoService(IOpcaoAvaliacaoRepository opcaoavaliacaoRepository)
-        {
             this.opcaoavaliacaoRepository = opcaoavaliacaoRepository;
-        }
-        
-        public AvaliacaoService(IQuestaoAvaliacaoRepository questaoavaliacaoRepository)
-        {
             this.questaoavaliacaoRepository = questaoavaliacaoRepository;
         }
-
+        
         public async Task<int> AdicionarAvaliacaoAsync(int professorId, string disciplina, string materia, string descricao)
         {
             var avaliacao = new Avaliacao { ProfessorId = professorId, Disciplina = disciplina, Materia = materia, Descricao = descricao };
@@ -174,7 +166,7 @@ namespace PUC.LDSI.Domain.Services
 
         public async Task<List<Avaliacao>> ListarAvaliacoesDoProfessorAsync(int professorId)
         {
-            var avaliacao = await avaliacaoRepository.ObterAsync(professorId);
+            var avaliacao = await avaliacaoRepository.ListarAvaliacoesDoProfessorAsync(professorId);
             return avaliacao;
             throw new NotImplementedException();
         }

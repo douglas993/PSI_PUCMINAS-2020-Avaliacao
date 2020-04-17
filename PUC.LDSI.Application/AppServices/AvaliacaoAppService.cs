@@ -143,19 +143,18 @@ namespace PUC.LDSI.Application.AppServices
             throw new NotImplementedException();
         }
 
-        public async Task<List<Avaliacao>> ListarAvaliacoesDoProfessorAsync(int professorId)
+        public async Task<DataResult<List<Avaliacao>>> ListarAvaliacoesDoProfessorAsync(int professorId)
         {
             try
             {
                 var retorno = await avaliacaoService.ListarAvaliacoesDoProfessorAsync(professorId);
-                return new DataResult<int>(retorno);
+                return new DataResult<List<Avaliacao>>(retorno);
             }
             catch (Exception ex)
             {
-                return new DataResult<int>(ex);
+                return new DataResult<List<Avaliacao>>(ex);
             }
             throw new NotImplementedException();
-        }
-
+        }        
     }
 }

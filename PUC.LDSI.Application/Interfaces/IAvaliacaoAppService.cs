@@ -17,6 +17,6 @@ namespace PUC.LDSI.Application.Interfaces
         Task<DataResult<int>> ExcluirAvaliacaoAsync(int id);
         Task<DataResult<int>> ExcluirQuestaoAvaliacaoAsync(int id);
         Task<DataResult<int>> ExcluirOpcaoAvaliacaoAsync(int id);
-        Task<List<Avaliacao>> ListarAvaliacoesDoProfessorAsync(int professorId);
+        Task<DataResult<List<Avaliacao>>> ListarAvaliacoesDoProfessorAsync(int professorId);
     }
 }
